@@ -4,8 +4,10 @@
   "description": "Hapi Project using mongodb and graphQL",
   "main": "index.js",
   "dependencies": {
+    "events": "^3.0.0",
     "git-cz": "^1.8.0",
     "hapi": "^18.1.0",
+    "mongoose": "^5.4.13",
     "nodemon": "^1.18.10"
   },
   "devDependencies": {
