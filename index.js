@@ -2,7 +2,7 @@ const Hapi = require('hapi');
 const mongoose = require('mongoose');
 const Painting = require('./models/painting');
 const schema = require('./graphql/schema')
-const {graphqlHapi,graphiqlHapi} = require('apollo-server-hapi');
+const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 /* swagger section */
 const Inert = require('inert');
 const Vision = require('vision');
@@ -10,22 +10,22 @@ const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 //mongoose.connect('mongodb://<prashantpersie>:<luckkadon007>@ds015574.mlab.com:15574/hapigraphql',{ useNewUrlParser: true })
 const server = Hapi.Server({
-  port: 8097,
-  host: 'localhost'
+	port: 8097,
+	host: 'localhost'
 });
-var mongodbUri ='mongodb://@ds015574.mlab.com:15574/hapigraphql';
+var mongodbUri = 'mongodb://@ds015574.mlab.com:15574/hapigraphql';
 mongoose.connect(mongodbUri, {
-  useNewUrlParser: true,
-  auth: {
-    user: 'prashantpersie',
-    password: 'luckkadon007'
-  }
+	useNewUrlParser: true,
+	auth: {
+		user: 'prashantpersie',
+		password: 'luckkadon007'
+	}
 })
-var conn = mongoose.connection;    
-conn.on('error', console.error.bind(console, 'connection error:'));  
- 
-conn.once('open', () =>{
- console.log('connected to database')                       
+var conn = mongoose.connection;
+conn.on('error', console.error.bind(console, 'connection error:'));
+
+conn.once('open', () => {
+	console.log('connected to database')
 });
 
 const init = async () => {
@@ -103,7 +103,7 @@ const init = async () => {
 			}
 		}
 	]);
-  await server.start();
-  console.log(`Server started on port ${server.info.uri}`);
+	await server.start();
+	console.log(`Server started on port ${server.info.uri}`);
 };
 init();
